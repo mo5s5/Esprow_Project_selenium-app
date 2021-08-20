@@ -1,23 +1,18 @@
 package com.esprow.tests.addExchanges;
 
-import java.util.concurrent.TimeUnit;
-
+import com.esprow.pages.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import com.esprow.pages.HomePage;
-import com.esprow.pages.LoginPage;
-import com.esprow.pages.PaymentPage;
-import com.esprow.pages.ExchangePage;
-import com.esprow.pages.SubscriptionPage;
+
+import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertEquals;
 
-public class AddExchangeFix42 {
+public class AddExchangeFix50sp1Test {
     WebDriver driver;
     String url = "https://spa-dev.etpmarkets.com:3000/";
     HomePage objHomePage;
@@ -25,7 +20,6 @@ public class AddExchangeFix42 {
     ExchangePage objExchangePage;
     SubscriptionPage objSubscriptionPage;
     PaymentPage objPaymentPage;
-
 
     @Before
     public void setUp() {
@@ -43,6 +37,7 @@ public class AddExchangeFix42 {
         driver.get(url);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+
     }
 
     @Test
@@ -54,12 +49,10 @@ public class AddExchangeFix42 {
         objPaymentPage = new PaymentPage(driver);
 
         objHomePage.clickSignInBtn();
-
         Thread.sleep(3000);
         // validate if correct page is open by title & url
         assertEquals(objLoginPage.getLoginPageExceptedTitle(), driver.getTitle());
         assertEquals(objLoginPage.getLoginPageExceptedUrl(), driver.getCurrentUrl());
-
         objLoginPage.setEmail("test.qa.1@esprow.com");
         objLoginPage.setPassword("temporaryAccount");
         objLoginPage.clickSubmitBtn();
@@ -86,9 +79,9 @@ public class AddExchangeFix42 {
 
 
         // Adding Exchange
-        objSubscriptionPage.addExchangeFix_42();
+        objSubscriptionPage.addExchangeFix_50_Sp1();
         // Validate if correct exchange is added
-        assertEquals("FIX 4.2", driver.findElement(By.cssSelector(".sc-AykKC:nth-child(1) > p")).getText());
+        assertEquals("FIX 5.0 SP1", driver.findElement(By.cssSelector(".sc-AykKC:nth-child(1) > p")).getText());
         assertEquals(objSubscriptionPage.getCount().toString(), driver.findElement(By.cssSelector(".sc-LzLws")).getText());
 
         //validate exchange coast
@@ -103,3 +96,4 @@ public class AddExchangeFix42 {
 
     }
 }
+

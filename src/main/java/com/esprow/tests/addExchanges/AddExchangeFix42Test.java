@@ -1,6 +1,7 @@
 package com.esprow.tests.addExchanges;
 
-import com.esprow.pages.*;
+import java.util.concurrent.TimeUnit;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -8,12 +9,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
-import java.util.concurrent.TimeUnit;
+import com.esprow.pages.HomePage;
+import com.esprow.pages.LoginPage;
+import com.esprow.pages.PaymentPage;
+import com.esprow.pages.ExchangePage;
+import com.esprow.pages.SubscriptionPage;
 
 import static org.junit.Assert.assertEquals;
 
-public class AddExchangeFix50sp2 {
+public class AddExchangeFix42Test {
     WebDriver driver;
     String url = "https://spa-dev.etpmarkets.com:3000/";
     HomePage objHomePage;
@@ -22,8 +26,11 @@ public class AddExchangeFix50sp2 {
     SubscriptionPage objSubscriptionPage;
     PaymentPage objPaymentPage;
 
+
     @Before
-    public void setUp() { //Set the key/value property according to the browser you are using.
+    public void setUp() {
+
+        //Set the key/value property according to the browser you are using.
         System.setProperty("webdriver.chrome.driver", "/home/mko/Загрузки/Selenium/WebDrivers/ChromeDriverSelenium/chromedriver");
 //        System.setProperty("webdriver.gecko.driver", "/home/mko/Загрузки/Selenium/WebDrivers/firefoxDriverSelenium/geckodriver");
 
@@ -36,7 +43,6 @@ public class AddExchangeFix50sp2 {
         driver.get(url);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-
     }
 
     @Test
@@ -48,10 +54,12 @@ public class AddExchangeFix50sp2 {
         objPaymentPage = new PaymentPage(driver);
 
         objHomePage.clickSignInBtn();
+
         Thread.sleep(3000);
         // validate if correct page is open by title & url
         assertEquals(objLoginPage.getLoginPageExceptedTitle(), driver.getTitle());
         assertEquals(objLoginPage.getLoginPageExceptedUrl(), driver.getCurrentUrl());
+
         objLoginPage.setEmail("test.qa.1@esprow.com");
         objLoginPage.setPassword("temporaryAccount");
         objLoginPage.clickSubmitBtn();
@@ -76,10 +84,11 @@ public class AddExchangeFix50sp2 {
         assertEquals(objSubscriptionPage.getSubscriptionPageTitle(), driver.getTitle());
         objSubscriptionPage.mouseMove();
 
+
         // Adding Exchange
-        objSubscriptionPage.addExchangeFix_50_Sp2();
+        objSubscriptionPage.addExchangeFix_42();
         // Validate if correct exchange is added
-        assertEquals("FIX 5.0 SP2", driver.findElement(By.cssSelector(".sc-AykKC:nth-child(1) > p")).getText());
+        assertEquals("FIX 4.2", driver.findElement(By.cssSelector(".sc-AykKC:nth-child(1) > p")).getText());
         assertEquals(objSubscriptionPage.getCount().toString(), driver.findElement(By.cssSelector(".sc-LzLws")).getText());
 
         //validate exchange coast
@@ -91,5 +100,6 @@ public class AddExchangeFix50sp2 {
     @After
     public void tearDown() {
         //Close the browser
+
     }
 }

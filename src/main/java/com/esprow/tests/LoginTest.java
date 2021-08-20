@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertEquals;
 
-public class LoginETPMarketTest {
+public class LoginTest {
     WebDriver driver;
     String url = "https://spa-dev.etpmarkets.com:3000/";
     HomePage objHomePage;
@@ -23,7 +23,7 @@ public class LoginETPMarketTest {
     String signInExceptedUrl="https://spa-dev.etpmarkets.com:3000/auth/sign-in";
     String exchangePageExceptedTitle ="ETP Markets";
     String exchangePageExceptedUrl="https://spa-dev.etpmarkets.com:3000/app/exchanges";
-    String subscriptionPageExceptedUrl="https://spa-dev.etpmarkets.com:3000/app/exchanges";
+    String subscriptionPageExceptedUrl="https://spa-dev.etpmarkets.com:3000/app/subscription";
     String subscriptionPageTitle="Subscription";
 
 

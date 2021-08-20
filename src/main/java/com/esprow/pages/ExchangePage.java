@@ -8,8 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 public class ExchangePage {
     WebDriver driver;
 
-    private String exchangePageExceptedTitle = "ETP Markets";
-    private String exchangePageExceptedUrl = "https://spa-dev.etpmarkets.com:3000/app/exchanges";
+    private final String exchangePageExceptedTitle = "ETP Markets";
+    private final String exchangePageExceptedUrl = "https://spa-dev.etpmarkets.com:3000/app/exchanges";
 
     public String getExchangePageExceptedTitle() {
         return exchangePageExceptedTitle;
@@ -20,7 +20,10 @@ public class ExchangePage {
     }
 
     @FindBy(linkText = "Subscription")
-    WebElement subscriptionBtn;
+    WebElement btnSubscription;
+    
+    @FindBy(linkText = "Logout")
+    WebElement btnLogout;
 
     @FindBy(css = ".sc-fzXfPg")
     WebElement menuDrpDwn;
@@ -38,7 +41,12 @@ public class ExchangePage {
     public void clickSubscriptionBtn() {
         menuDrpDwn.click();
 
-        subscriptionBtn.click();
+        btnSubscription.click();
+    }
+    public void logOut(){
+        menuDrpDwn.click();
+        btnLogout.click();
+        
     }
 
 

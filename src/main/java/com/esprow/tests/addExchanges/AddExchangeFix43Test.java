@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertEquals;
 
-public class AddExchangeFix44 {
+public class AddExchangeFix43Test {
     WebDriver driver;
     String url = "https://spa-dev.etpmarkets.com:3000/";
     HomePage objHomePage;
@@ -42,6 +42,7 @@ public class AddExchangeFix44 {
 
     @Test
     public void test() throws InterruptedException {
+        // Initialisation
         objHomePage = new HomePage(driver);
         objLoginPage = new LoginPage(driver);
         objExchangePage = new ExchangePage(driver);
@@ -54,11 +55,9 @@ public class AddExchangeFix44 {
         assertEquals(objLoginPage.getLoginPageExceptedTitle(), driver.getTitle());
         assertEquals(objLoginPage.getLoginPageExceptedUrl(), driver.getCurrentUrl());
 
-
         objLoginPage.setEmail("test.qa.1@esprow.com");
         objLoginPage.setPassword("temporaryAccount");
         objLoginPage.clickSubmitBtn();
-
         // validate if correct page is open by title & url
         /*     ****************
         I dont find the reason why after sign in application sometimes opens "Exchange" page, sometimes "Subscription" page
@@ -79,16 +78,17 @@ public class AddExchangeFix44 {
         assertEquals(objSubscriptionPage.getSubscriptionPageTitle(), driver.getTitle());
         objSubscriptionPage.mouseMove();
 
-
         // Adding Exchange
-        objSubscriptionPage.addExchangeFix_44();
+        objSubscriptionPage.addExchangeFix_43();
         // Validate if correct exchange is added
-        assertEquals("FIX 4.4", driver.findElement(By.cssSelector(".sc-AykKC:nth-child(1) > p")).getText());
+        assertEquals("FIX 4.3", driver.findElement(By.cssSelector(".sc-AykKC:nth-child(1) > p")).getText());
         assertEquals(objSubscriptionPage.getCount().toString(), driver.findElement(By.cssSelector(".sc-LzLws")).getText());
 
         //validate exchange coast
+
         Thread.sleep(5000);
         assertEquals(objSubscriptionPage.getStrTotalCoastAddExchangePopup(), driver.findElement(By.xpath("//div[@id='ETPGems']/div[3]/div[2]/div[2]/div/div[3]/div[2]/div[2]/div/div/div/span[2]")).getText());
+
     }
 
     @After
@@ -97,3 +97,4 @@ public class AddExchangeFix44 {
 
     }
 }
+
