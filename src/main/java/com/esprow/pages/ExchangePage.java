@@ -40,7 +40,6 @@ public class ExchangePage {
 //
     public void clickSubscriptionBtn() {
         menuDrpDwn.click();
-
         btnSubscription.click();
     }
     public void logOut(){

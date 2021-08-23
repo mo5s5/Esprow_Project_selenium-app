@@ -1,5 +1,6 @@
 package com.esprow.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -9,7 +10,6 @@ import org.openqa.selenium.support.PageFactory;
 public class SubscriptionPage {
 
 
-
     private final String subscriptionPageExceptedUrl = "https://spa-dev.etpmarkets.com:3000/app/subscription";
     private final String subscriptionPageTitle = "Subscription";
 
@@ -17,6 +17,7 @@ public class SubscriptionPage {
     private String strProtocolPriceAddExchangePopup;
     private String strSessionPriceAddExchangePopup;
     private Integer count = 0;
+
     public Integer getCount() {
         return count;
     }
@@ -40,7 +41,6 @@ public class SubscriptionPage {
     public String getStrTotalCoastAddExchangePopup() {
         return strTotalCoastAddExchangePopup;
     }
-
 
 
     WebDriver driver;
@@ -80,10 +80,10 @@ public class SubscriptionPage {
     @FindBy(css = ".sc-LzLwq:nth-child(1)")
     WebElement btnSessionNumberMinus;
 
-    @FindBy(css=".sc-AykKC:nth-child(7) > span:nth-child(2)")
+    @FindBy(css = ".sc-AykKC:nth-child(7) > span:nth-child(2)")
     WebElement protocolPriceAddExchangePopup;
 
-    @FindBy(css=".sc-AykKC:nth-child(9) > span:nth-child(2)")
+    @FindBy(css = ".sc-AykKC:nth-child(9) > span:nth-child(2)")
     WebElement sessionPriceAddExchangePopup;
 
     @FindBy(css = ".sc-fzXfRa:nth-child(2)")
@@ -119,7 +119,7 @@ public class SubscriptionPage {
     @FindBy(css = ".sc-LzLrj:nth-child(3) .svg-inline--fa")
     WebElement checkBoxMarkAllSubscriptions;
 
-    @FindBy(css=".sc-LzLsz:nth-child(1)")
+    @FindBy(css = ".sc-LzLsz:nth-child(1)")
     WebElement btnDeleteMarkedSubscriptions;
 
     @FindBy(css = ".subscription-confirm-button")
@@ -127,6 +127,9 @@ public class SubscriptionPage {
 
     @FindBy(css = ".sc-AykKC > .sc-AykKE")
     WebElement btnPopupConfirm;
+
+    @FindBy(css = ".sc-fzXfQq")
+    WebElement msgNoExchange;
 
     public SubscriptionPage(WebDriver driver) {
         this.driver = driver;
@@ -142,9 +145,9 @@ public class SubscriptionPage {
         btnSessionNumberPlus.click();
         btnSessionNumberMinus.click();
         count++;
-        strTotalCoastAddExchangePopup=totalCoastAddExchangePopup.getText();
-        strProtocolPriceAddExchangePopup=protocolPriceAddExchangePopup.getText();
-        strSessionPriceAddExchangePopup=sessionPriceAddExchangePopup.getText();
+        strTotalCoastAddExchangePopup = totalCoastAddExchangePopup.getText();
+        strProtocolPriceAddExchangePopup = protocolPriceAddExchangePopup.getText();
+        strSessionPriceAddExchangePopup = sessionPriceAddExchangePopup.getText();
         btnAdd1.click();
 
     }
@@ -156,9 +159,9 @@ public class SubscriptionPage {
         protocolTypeFix_43.click();
         btnSessionNumberPlus.click();
         count++;
-        strTotalCoastAddExchangePopup=totalCoastAddExchangePopup.getText();
-        strProtocolPriceAddExchangePopup=protocolPriceAddExchangePopup.getText();
-        strSessionPriceAddExchangePopup=sessionPriceAddExchangePopup.getText();
+        strTotalCoastAddExchangePopup = totalCoastAddExchangePopup.getText();
+        strProtocolPriceAddExchangePopup = protocolPriceAddExchangePopup.getText();
+        strSessionPriceAddExchangePopup = sessionPriceAddExchangePopup.getText();
         btnAdd1.click();
 
     }
@@ -170,9 +173,9 @@ public class SubscriptionPage {
         protocolTypeFix_44.click();
         btnSessionNumberPlus.click();
         count++;
-        strTotalCoastAddExchangePopup=totalCoastAddExchangePopup.getText();
-        strProtocolPriceAddExchangePopup=protocolPriceAddExchangePopup.getText();
-        strSessionPriceAddExchangePopup=sessionPriceAddExchangePopup.getText();
+        strTotalCoastAddExchangePopup = totalCoastAddExchangePopup.getText();
+        strProtocolPriceAddExchangePopup = protocolPriceAddExchangePopup.getText();
+        strSessionPriceAddExchangePopup = sessionPriceAddExchangePopup.getText();
         btnAdd1.click();
     }
 
@@ -183,9 +186,9 @@ public class SubscriptionPage {
         protocolTypeFix_50.click();
         btnSessionNumberPlus.click();
         count++;
-        strTotalCoastAddExchangePopup=totalCoastAddExchangePopup.getText();
-        strProtocolPriceAddExchangePopup=protocolPriceAddExchangePopup.getText();
-        strSessionPriceAddExchangePopup=sessionPriceAddExchangePopup.getText();
+        strTotalCoastAddExchangePopup = totalCoastAddExchangePopup.getText();
+        strProtocolPriceAddExchangePopup = protocolPriceAddExchangePopup.getText();
+        strSessionPriceAddExchangePopup = sessionPriceAddExchangePopup.getText();
         btnAdd1.click();
     }
 
@@ -196,9 +199,9 @@ public class SubscriptionPage {
         protocolTypeFix_50_Sp1.click();
         btnSessionNumberPlus.click();
         count++;
-        strTotalCoastAddExchangePopup=totalCoastAddExchangePopup.getText();
-        strProtocolPriceAddExchangePopup=protocolPriceAddExchangePopup.getText();
-        strSessionPriceAddExchangePopup=sessionPriceAddExchangePopup.getText();
+        strTotalCoastAddExchangePopup = totalCoastAddExchangePopup.getText();
+        strProtocolPriceAddExchangePopup = protocolPriceAddExchangePopup.getText();
+        strSessionPriceAddExchangePopup = sessionPriceAddExchangePopup.getText();
         btnAdd1.click();
     }
 
@@ -209,10 +212,14 @@ public class SubscriptionPage {
         protocolTypeFix_50_Sp2.click();
         btnSessionNumberPlus.click();
         count++;
-        strTotalCoastAddExchangePopup=totalCoastAddExchangePopup.getText();
-        strProtocolPriceAddExchangePopup=protocolPriceAddExchangePopup.getText();
-        strSessionPriceAddExchangePopup=sessionPriceAddExchangePopup.getText();
+        strTotalCoastAddExchangePopup = totalCoastAddExchangePopup.getText();
+        strProtocolPriceAddExchangePopup = protocolPriceAddExchangePopup.getText();
+        strSessionPriceAddExchangePopup = sessionPriceAddExchangePopup.getText();
         btnAdd1.click();
+    }
+
+    public void chekExchangeExisting() {
+        Assert.assertEquals("You don't have any active subscriptions", msgNoExchange.getText());
     }
 
     public void clickSubscriptionConfirmBtn() {
@@ -227,8 +234,6 @@ public class SubscriptionPage {
         subscriptionConfirmBtn.click();
     }
 
-//12.08
-
     public void clickSubscriptionDetailsBtnPlus() {
         subscriptionDetailsBtnPlus.click();
     }
@@ -238,7 +243,7 @@ public class SubscriptionPage {
     }
 
 
-////
+
 
     public void clickBtnPay() {
         btnPay.click();
@@ -253,16 +258,11 @@ public class SubscriptionPage {
         // Performs mouse move action onto the offset position
         actionProvider.moveByOffset(100, 100).build().perform();
     }
-//public void mouseNavigate(){
-//	Actions action=new Actions(driver);
-//	action.moveToElement(btnPay);
 
-    public void deleteAllSubscriptions() {
-//	if(!checkBoxMarkAllSubscriptions.isSelected()) {
-//		System.out.println("checkBox Wasnt selected");
-//		checkBoxMarkAllSubscriptions.click();}
+
+    public void deleteAllSubscriptions() throws InterruptedException {
+
         btnDeleteMarkedSubscriptions.click();
         btnConfirm.click();
-        btnPopupConfirm.click();
     }
 }

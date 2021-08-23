@@ -3,10 +3,9 @@ package com.esprow.tests;
 import com.esprow.pages.*;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.ElementNotInteractableException;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.opera.OperaDriver;
 
 import java.util.concurrent.TimeUnit;
 
@@ -27,11 +26,9 @@ public class PaymentTest {
     public void setUp() {
         //Set the key/value property according to the browser you are using.
         System.setProperty("webdriver.chrome.driver", "/home/mko/Загрузки/Selenium/WebDrivers/ChromeDriverSelenium/chromedriver");
-//        System.setProperty("webdriver.gecko.driver", "/home/mko/Загрузки/Selenium/WebDrivers/firefoxDriverSelenium/geckodriver");
-
         //Open browser instance
         driver = new ChromeDriver();
-//        driver = new FirefoxDriver();
+
 
         //Open the AUT
         driver.manage().window().maximize();
@@ -73,8 +70,16 @@ public class PaymentTest {
         Thread.sleep(3000);
         // validate if correct page is open by title & url
         assertEquals(objSubscriptionPage.getSubscriptionPageExceptedUrl(), driver.getCurrentUrl());
-        assertEquals(objSubscriptionPage.getSubscriptionPageTitle(), driver.getTitle());
+        assertEquals("ETP Markets", driver.getTitle());
         objSubscriptionPage.mouseMove();
+        objSubscriptionPage.addExchangeFix_42();
+        // Validate if correct exchange is added
+        assertEquals("FIX 4.2", driver.findElement(By.cssSelector(".sc-AykKC:nth-child(1) > p")).getText());
+        assertEquals(objSubscriptionPage.getCount().toString(), driver.findElement(By.cssSelector(".sc-LzLws")).getText());
+
+        //validate exchange coast
+        Thread.sleep(5000);
+        assertEquals(objSubscriptionPage.getStrTotalCoastAddExchangePopup(), driver.findElement(By.xpath("//div[@id='ETPGems']/div[3]/div[2]/div[2]/div/div[3]/div[2]/div[2]/div/div/div/span[2]")).getText());
 
         //Payment
         try {

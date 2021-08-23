@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class DeleteExchanges {
+public class DeleteExchangesTest {
     WebDriver driver;
     PaymentPage objPaymentPage;
     HomePage objHomePage;
@@ -74,11 +74,22 @@ public class DeleteExchanges {
         // validate if correct page is open by title & url
         assertEquals(objSubscriptionPage.getSubscriptionPageExceptedUrl(), driver.getCurrentUrl());
         assertEquals(objSubscriptionPage.getSubscriptionPageTitle(), driver.getTitle());
-        objSubscriptionPage.mouseMove();
-        if (driver.findElement(By.cssSelector(".sc-LzLvb")).isDisplayed()) {
-            objSubscriptionPage.clickCheckBoxMarkAllSubscriptions();
-            assertTrue(driver.findElement(By.cssSelector(".sc-LzLrj:nth-child(3)")).isSelected());
-            objSubscriptionPage.deleteAllSubscriptions();
-        }
+
+        objSubscriptionPage.addExchangeFix_42();
+        // Validate if correct exchange is added
+        assertEquals("FIX 4.2", driver.findElement(By.cssSelector(".sc-AykKC:nth-child(1) > p")).getText());
+        assertEquals(objSubscriptionPage.getCount().toString(), driver.findElement(By.cssSelector(".sc-LzLws")).getText());
+
+        //validate exchange coast
+        Thread.sleep(5000);
+        assertEquals(objSubscriptionPage.getStrTotalCoastAddExchangePopup(), driver.findElement(By.xpath("//div[@id='ETPGems']/div[3]/div[2]/div[2]/div/div[3]/div[2]/div[2]/div/div/div/span[2]")).getText());
+
+
+        objSubscriptionPage.clickCheckBoxMarkAllSubscriptions();
+        objSubscriptionPage.deleteAllSubscriptions();
+        driver.navigate().refresh();
+        objSubscriptionPage.chekExchangeExisting();
+
+
     }
 }

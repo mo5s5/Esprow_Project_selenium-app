@@ -26,13 +26,12 @@ public class AddExchangeFix42Test {
     SubscriptionPage objSubscriptionPage;
     PaymentPage objPaymentPage;
 
-
     @Before
     public void setUp() {
 
         //Set the key/value property according to the browser you are using.
         System.setProperty("webdriver.chrome.driver", "/home/mko/Загрузки/Selenium/WebDrivers/ChromeDriverSelenium/chromedriver");
-//        System.setProperty("webdriver.gecko.driver", "/home/mko/Загрузки/Selenium/WebDrivers/firefoxDriverSelenium/geckodriver");
+
 
         //Open browser instance
         driver = new ChromeDriver();
@@ -52,9 +51,7 @@ public class AddExchangeFix42Test {
         objExchangePage = new ExchangePage(driver);
         objSubscriptionPage = new SubscriptionPage(driver);
         objPaymentPage = new PaymentPage(driver);
-
         objHomePage.clickSignInBtn();
-
         Thread.sleep(3000);
         // validate if correct page is open by title & url
         assertEquals(objLoginPage.getLoginPageExceptedTitle(), driver.getTitle());
@@ -75,7 +72,6 @@ public class AddExchangeFix42Test {
         }
 //        assertEquals(subscriptionPageTitle,driver.getTitle());
 //        assertEquals(exchangePageExceptedUrl,driver.getCurrentUrl());
-
         objExchangePage.clickSubscriptionBtn();
 
         Thread.sleep(3000);
@@ -83,7 +79,6 @@ public class AddExchangeFix42Test {
         assertEquals(objSubscriptionPage.getSubscriptionPageExceptedUrl(), driver.getCurrentUrl());
         assertEquals(objSubscriptionPage.getSubscriptionPageTitle(), driver.getTitle());
         objSubscriptionPage.mouseMove();
-
 
         // Adding Exchange
         objSubscriptionPage.addExchangeFix_42();
@@ -100,6 +95,7 @@ public class AddExchangeFix42Test {
     @After
     public void tearDown() {
         //Close the browser
+        driver.close();
 
     }
 }
