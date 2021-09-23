@@ -19,7 +19,7 @@ public class PaymentTest {
     ExchangePage objExchangePage;
     SubscriptionPage objSubscriptionPage;
 
-    String url = "https://spa-dev.etpmarkets.com:3000/";
+    String url = "https://";
 
 
     @Before

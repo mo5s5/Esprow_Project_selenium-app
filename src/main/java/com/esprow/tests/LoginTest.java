@@ -20,13 +20,13 @@ public class LoginTest {
     HomePage objHomePage;
     LoginPage objLoginPage;
 
-    String homePageUrl = "https://spa-dev.etpmarkets.com:3000/";
+    String homePageUrl = "https://";
     String homepageTitle = "ETP Markets";
     String signInExceptedTitle = "ETP Markets";
-    String signInExceptedUrl = "https://spa-dev.etpmarkets.com:3000/auth/sign-in";
+    String signInExceptedUrl = "https://";
     String exchangePageExceptedTitle = "ETP Markets";
-    String exchangePageExceptedUrl = "https://spa-dev.etpmarkets.com:3000/app/exchanges";
-    String subscriptionPageExceptedUrl = "https://spa-dev.etpmarkets.com:3000/app/subscription";
+    String exchangePageExceptedUrl = "https://";
+    String subscriptionPageExceptedUrl = "https://";
     String subscriptionPageTitle = "Subscription";
 
     public LoginTest(WebDriver driver, String url, HomePage objHomePage, LoginPage objLoginPage, SubscriptionPage objSubscriptionPage) {

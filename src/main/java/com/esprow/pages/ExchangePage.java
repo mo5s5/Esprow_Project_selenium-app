@@ -9,7 +9,7 @@ public class ExchangePage {
     WebDriver driver;
 
     private final String exchangePageExceptedTitle = "ETP Markets";
-    private final String exchangePageExceptedUrl = "https://spa-dev.etpmarkets.com:3000/app/exchanges";
+    private final String exchangePageExceptedUrl = "https:/";
 
     public String getExchangePageExceptedTitle() {
         return exchangePageExceptedTitle;

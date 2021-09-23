@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 public class SubscriptionPage {
 
 
-    private final String subscriptionPageExceptedUrl = "https://spa-dev.etpmarkets.com:3000/app/subscription";
+    private final String subscriptionPageExceptedUrl = "https://";
     private final String subscriptionPageTitle = "Subscription";
 
     private String strTotalCoastAddExchangePopup;

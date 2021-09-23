@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
 
 public class AddExchangeFix50sp2Test {
     WebDriver driver;
-    String url = "https://spa-dev.etpmarkets.com:3000/";
+    String url = "https://";
     HomePage objHomePage;
     LoginPage objLoginPage;
     ExchangePage objExchangePage;

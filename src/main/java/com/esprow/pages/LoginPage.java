@@ -9,7 +9,7 @@ public class LoginPage {
     WebDriver driver;
 
     private final String loginPageExceptedTitle = "ETP Markets";
-    private final String loginPageExceptedUrl = "https://spa-dev.etpmarkets.com:3000/auth/sign-in";
+    private final String loginPageExceptedUrl = "https://";
 
     public String getLoginPageExceptedTitle() {
         return loginPageExceptedTitle;

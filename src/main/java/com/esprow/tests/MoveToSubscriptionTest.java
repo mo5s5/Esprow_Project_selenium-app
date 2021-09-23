@@ -16,18 +16,18 @@ import static org.junit.Assert.assertEquals;
 
 public class MoveToSubscriptionTest {
     WebDriver driver;
-    String url = "https://spa-dev.etpmarkets.com:3000/";
+    String url = "https://";
     HomePage objHomePage;
     LoginPage objLoginPage;
     ExchangePage objExchangePage;
     SubscriptionPage objSubscriptionPage;
     String exchangePageExceptedTitle = "ETP Markets";
-    String exchangePageExceptedUrl = "https://spa-dev.etpmarkets.com:3000/app/exchanges";
-    String subscriptionPageExceptedUrl = "https://spa-dev.etpmarkets.com:3000/app/subscription";
+    String exchangePageExceptedUrl = "https://";
+    String subscriptionPageExceptedUrl = "https://";
     String subscriptionPageTitle = "ETP Markets";
     String homepageTitle = "ETP Markets";
     String signInExceptedTitle = "ETP Markets";
-    String signInExceptedUrl = "https://spa-dev.etpmarkets.com:3000/auth/sign-in";
+    String signInExceptedUrl = "https://";
 
 
     @Before
@@ -69,7 +69,7 @@ public class MoveToSubscriptionTest {
         }
         objExchangePage.clickSubscriptionBtn();
         Thread.sleep(3000);
-        assertEquals("https://spa-dev.etpmarkets.com:3000/app/subscription", driver.getCurrentUrl());
+        assertEquals("https://", driver.getCurrentUrl());
         assertEquals("Subscription", driver.getTitle());
 
     }

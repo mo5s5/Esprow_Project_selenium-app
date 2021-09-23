@@ -14,17 +14,17 @@ import static org.junit.Assert.assertEquals;
 
 public class LogoutTest {
     WebDriver driver;
-    String url = "https://spa-dev.etpmarkets.com:3000/";
+    String url = "https://";
     HomePage objHomePage;
     LoginPage objLoginPage;
     ExchangePage objExchangePage;
-    String homePageUrl = "https://spa-dev.etpmarkets.com:3000/";
+    String homePageUrl = "https://";
     String homepageTitle = "ETP Markets";
     String signInExceptedTitle = "ETP Markets";
-    String signInExceptedUrl = "https://spa-dev.etpmarkets.com:3000/auth/sign-in";
+    String signInExceptedUrl = "https://";
     String exchangePageExceptedTitle = "ETP Markets";
-    String exchangePageExceptedUrl = "https://spa-dev.etpmarkets.com:3000/app/exchanges";
-    String subscriptionPageExceptedUrl = "https://spa-dev.etpmarkets.com:3000/app/exchanges";
+    String exchangePageExceptedUrl = "https://";
+    String subscriptionPageExceptedUrl = "https://";
     String subscriptionPageTitle = "Subscription";
 
 
@@ -78,7 +78,7 @@ public class LogoutTest {
 
         //  **** End of LoginTest part****
         objExchangePage.logOut();
-        assertEquals("https://spa-dev.etpmarkets.com:3000/auth/sign-in", driver.getCurrentUrl());
+        assertEquals("https://", driver.getCurrentUrl());
 
     }
 }
